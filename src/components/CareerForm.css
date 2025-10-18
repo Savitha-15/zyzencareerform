@@ -1,0 +1,114 @@
+/* Full viewport wrapper to center the form */
+.career-form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;       /* full viewport height */
+  width: 100%;
+  background-color: #eef1f6;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Form Card */
+.card.form-card {
+  width: 100%;
+  max-width: 500px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", sans-serif;
+  box-sizing: border-box;
+}
+
+/* Form Title */
+.form-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+/* Grid inputs */
+.form-grid label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #555;
+}
+
+.form-grid input,
+.form-grid textarea {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-grid input:focus,
+.form-grid textarea:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 6px rgba(79,70,229,0.3);
+  outline: none;
+}
+
+.error-text {
+  color: #d93025;
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+}
+
+/* Buttons */
+.actions {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.btn {
+  padding: 0.8rem 1.2rem;
+  background: #4f46e5;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #4338ca;
+}
+
+/* Status messages */
+.success {
+  color: green;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .career-form-wrapper {
+    padding: 1rem;
+  }
+
+  .card.form-card {
+    max-width: 90%;
+    padding: 1.5rem;
+  }
+
+  .form-title {
+    font-size: 1.4rem;
+  }
+}

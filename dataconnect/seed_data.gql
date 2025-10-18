@@ -1,0 +1,46 @@
+mutation SeedDatabase @auth(level: USER, insecureReason: "This operation is for seeding the database and does not require specific user authentication.") {
+  applicant_insertMany(data: [
+    {
+      firstName: "John",
+      lastName: "Doe",
+      email: "john.doe@example.com",
+      phoneNumber: "123-456-7890",
+      linkedInProfile: "linkedin.com/in/johndoe",
+      createdAt: "2024-04-26T12:00:00Z"
+    },
+    {
+      firstName: "Jane",
+      lastName: "Smith",
+      email: "jane.smith@example.com",
+      phoneNumber: "987-654-3210",
+      linkedInProfile: "linkedin.com/in/janesmith",
+      createdAt: "2024-04-25T10:00:00Z"
+    }
+  ])
+  jobOpening_insertMany(data: [
+    {
+      title: "Software Engineer",
+      description: "Develop and maintain software applications.",
+      requirements: "Bachelor's degree in Computer Science, 3+ years of experience.",
+      responsibilities: "Write code, test code, debug code.",
+      department: "Engineering",
+      location: "Mountain View, CA",
+      salaryRange: "$120,000 - $150,000",
+      postedBy: "HR Department",
+      status: "Open",
+      createdAt: "2024-04-24T09:00:00Z"
+    },
+    {
+      title: "Data Scientist",
+      description: "Analyze data to identify trends and insights.",
+      requirements: "Master's degree in Statistics, 2+ years of experience.",
+      responsibilities: "Collect data, clean data, analyze data.",
+      department: "Data Science",
+      location: "New York, NY",
+      salaryRange: "$110,000 - $140,000",
+      postedBy: "HR Department",
+      status: "Open",
+      createdAt: "2024-04-23T08:00:00Z"
+    }
+  ])
+}

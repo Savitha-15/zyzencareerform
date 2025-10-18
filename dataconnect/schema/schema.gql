@@ -1,0 +1,44 @@
+type JobOpening @table {
+  title: String!
+  description: String!
+  requirements: String!
+  department: String!
+  status: String!
+  createdAt: Timestamp!
+  location: String
+  salaryRange: String
+  responsibilities: String
+  postedBy: String
+}
+
+type Applicant @table {
+  firstName: String!
+  lastName: String!
+  email: String!
+  createdAt: Timestamp!
+  phoneNumber: String
+  linkedInProfile: String
+}
+
+type Application @table {
+  applicant: Applicant!
+  jobOpening: JobOpening!
+  submissionDate: Timestamp!
+  status: String!
+  coverLetterText: String
+}
+
+type Document @table {
+  application: Application!
+  fileName: String!
+  fileUrl: String!
+  documentType: String!
+  uploadedAt: Timestamp!
+}
+
+type Note @table {
+  application: Application!
+  content: String!
+  createdAt: Timestamp!
+  authorName: String!
+}

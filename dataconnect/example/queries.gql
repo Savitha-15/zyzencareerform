@@ -1,0 +1,61 @@
+mutation CreateApplicant(
+  $firstName: String!
+  $lastName: String!
+  $email: String!
+  $phoneNumber: String!
+  $linkedInProfile: String
+) @auth(level: PUBLIC, insecureReason: "This operation is safe to expose to the public") {
+  applicant_insert(
+    data: {
+      firstName: $firstName
+      lastName: $lastName
+      email: $email
+      phoneNumber: $phoneNumber
+      linkedInProfile: $linkedInProfile
+      createdAt_expr: "request.time"
+    }
+  )
+}
+
+query GetJobOpenings @auth(level: PUBLIC, insecureReason: "This operation is safe to expose to the public") {
+  jobOpenings {
+    id
+    title
+    description
+    department
+    location
+    salaryRange
+  }
+}
+
+mutation CreateApplication(
+  $applicantId: UUID!
+  $jobOpeningId: UUID!
+  $coverLetterText: String
+  $status: String!
+) @auth(level: USER, insecureReason: "This operation is safe to expose to all logged in users.") {
+  application_insert(
+    data: {
+      applicantId: $applicantId
+      jobOpeningId: $jobOpeningId
+      coverLetterText: $coverLetterText
+      status: $status
+      submissionDate_expr: "request.time"
+    }
+  )
+}
+
+query GetApplicationsForJobOpening($jobOpeningId: UUID!) @auth(level: USER, insecureReason: "This operation is safe to expose to all logged in users.") {
+  applications(where: { jobOpeningId: { eq: $jobOpeningId } }) {
+    id
+    applicant {
+      id
+      firstName
+      lastName
+      email
+    }
+    coverLetterText
+    status
+    submissionDate
+  }
+}
