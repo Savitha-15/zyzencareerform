@@ -20,9 +20,11 @@ body{
 .brand{font-family:'Playfair Display', serif;font-size:28px;font-weight:700;color:#0f1724}
 .nav-links a{margin-left:18px;text-decoration:none;color:#0f1724;font-weight:600}
 
+
 .hero{padding:60px 0;display:grid;grid-template-columns:1fr 460px;gap:40px;align-items:start}
 .hero-title{font-family:'Playfair Display',serif;font-size:42px;margin:0 0 10px}
 .hero-sub{margin:0 0 30px;font-weight:500}
+
 
 .card{background:var(--card);border-radius:18px;padding:24px;box-shadow:0 10px 30px rgba(16,42,67,0.12)}
 .form-card{padding:26px}
@@ -36,17 +38,69 @@ label.full{grid-column:1/-1}
 .btn{background:linear-gradient(90deg,#667eea,#764ba2);color:white;padding:10px 16px;border-radius:12px;border:none;font-weight:700;cursor:pointer;box-shadow:0 8px 20px rgba(118,75,162,0.22)}
 .btn:disabled{opacity:0.6;cursor:not-allowed}
 
+
 .success{color:green;margin-top:10px}
 .error{color:#c53030;margin-top:10px}
+
 
 .footer{padding:28px 0;margin-top:40px}
 .footer-inner{display:flex;justify-content:space-between;align-items:center}
 .socials a{margin-left:14px;text-decoration:none;color:#0f1724}
 
-/* responsive */
-@media (max-width:900px){
-  .hero{grid-template-columns:1fr; padding:30px 0}
-  .grid{grid-template-columns:1fr}
+/* --- RESPONSIVE IMPROVEMENTS BELOW --- */
+
+/* Laptop & below */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 95vw;
+    padding: 0 8px;
+  }
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 40px 0;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tablet & below */
+@media (max-width: 900px) {
+  .container {
+    max-width: 100vw;
+    padding: 0 4px;
+  }
+  .hero {
+    padding: 30px 0;
+  }
+  .navbar, .footer { padding-left: 8px; padding-right: 8px; }
+}
+
+/* Phone */
+@media (max-width: 600px) {
+  .container {max-width: 100vw; padding: 0 2px;}
+  .hero {
+    padding: 20px 0; 
+    grid-template-columns:1fr;
+    gap: 14px;
+  }
+  .hero-title {font-size: 28px;}
+  .hero-sub {font-size: 15px;}
+  .card, .form-card {padding: 10px; border-radius: 10px;}
+  .grid, .apply-form, form {grid-template-columns: 1fr; width: 100%;}
+  .btn {width: 100%; justify-content: center; padding: 14px;}
+  .navbar, .footer {padding: 12px 0;}
+  .footer-inner, .nav-inner {flex-direction: column; gap: 10px;}
+  .nav-links a, .socials a {margin-left: 0; margin-right: 10px;}
+}
+
+/* Extra Small Devices */
+@media (max-width: 400px) {
+  .hero-title {font-size: 22px;}
+  .brand {font-size: 20px;}
+  .container {padding: 0 1px;}
+  .btn {font-size: 14px;}
 }
 
 /* subtle float animation for hero */
@@ -57,35 +111,7 @@ label.full{grid-column:1/-1}
 }
 .hero-title{animation:floaty 6s ease-in-out infinite}
 
-@media (max-width:600px){
-  .hero{padding:20px 0; grid-template-columns:1fr} /* Stack hero content */
-  .hero-title{font-size:32px} /* Smaller title */
-  .hero-sub{font-size:16px} /* Smaller subtitle */
-  .card, .form-card{padding:16px; border-radius:14px} /* Smaller cards */
-  .grid{grid-template-columns:1fr} /* Form inputs stack vertically */
-  .btn{width:100%; justify-content:center; padding:12px} /* Full-width button */
-}
-
-input, textarea{padding:14px; font-size:15px}
-.btn{padding:14px 16px; font-size:16px}
-
-.hero{grid-template-columns:1fr auto; gap:20px} /* Already good */
-.container{width:100%; max-width:1100px; padding:0 15px} /* Fluid container */
-
-@media (max-width:900px){
-  .hero{grid-template-columns:1fr; padding:30px 0}
-  .grid{grid-template-columns:1fr}
-}
-
-@media (max-width:600px){
-  .hero{padding:20px 0; grid-template-columns:1fr}
-  .hero-title{font-size:32px}
-  .hero-sub{font-size:16px}
-  .card, .form-card{padding:16px; border-radius:14px}
-  .grid{grid-template-columns:1fr}
-  .btn{width:100%; justify-content:center; padding:12px}
-}
-
+/* Keep these for spacing/inputs/buttons improvements */
 input, textarea{padding:14px; font-size:15px}
 .btn{padding:14px 16px; font-size:16px}
 
@@ -98,20 +124,17 @@ input, textarea{padding:14px; font-size:15px}
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   font-family: "Segoe UI", sans-serif;
 }
-
 .apply-form h2 {
   text-align: center;
   margin-bottom: 1.5rem;
   color: #333;
 }
-
 .apply-form label {
   display: block;
   margin: 0.5rem 0 0.2rem;
   font-weight: 600;
   color: #555;
 }
-
 .apply-form input,
 .apply-form textarea {
   width: 100%;
@@ -122,14 +145,12 @@ input, textarea{padding:14px; font-size:15px}
   font-size: 1rem;
   transition: all 0.3s ease;
 }
-
 .apply-form input:focus,
 .apply-form textarea:focus {
   border-color: #4f46e5;
   box-shadow: 0 0 5px rgba(79, 70, 229, 0.3);
   outline: none;
 }
-
 .apply-form button {
   width: 100%;
   padding: 0.8rem;
@@ -142,7 +163,6 @@ input, textarea{padding:14px; font-size:15px}
   cursor: pointer;
   transition: background 0.3s ease;
 }
-
 .apply-form button:hover {
   background: #4338ca;
 }
